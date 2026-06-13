@@ -1,8 +1,40 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="refresh" content="0; url=/me/" />
-    </head>
-    <body>
-    </body>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Adrien LE BRETON</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="favicon.ico" />
+    <script>
+      // GitHub Pages ne sait pas servir une SPA : toute route profonde (/me/portfolio/ogmah)
+      // tombe sur ce 404.html. On ré-encode le chemin en query string et on redirige vers
+      // la racine du site ; index.html restaure ensuite l'URL réelle avant le bootstrap Angular.
+      // Technique : https://github.com/rafgraph/spa-github-pages (MIT)
+      var pathSegmentsToKeep = 1; // 1 segment conservé = /me/
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname
+            .split('/')
+            .slice(0, 1 + pathSegmentsToKeep)
+            .join('/') +
+          '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(pathSegmentsToKeep)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+      );
+    </script>
+  </head>
+  <body>
+    <p>Redirection…</p>
+  </body>
 </html>
