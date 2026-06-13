@@ -8,7 +8,6 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  user-select: none;
   background-color: black;
   overflow-y: auto
 }
@@ -319,4 +318,24 @@ a.btn-default.round, button.btn-default.round, div.btn-default.round {
 
     @include animation(logo-pulse 1.5s ease-in-out infinite);
   }
+}
+
+/* ==========================================================================
+Lenis — smooth scroll (styles de base recommandés par la lib)
+========================================================================== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }

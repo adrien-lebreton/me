@@ -1,17 +1,9 @@
 # ===================================================================
-# robots.txt for Adrien LE BRETON - Portfolio
-# Generated: 14/04/2025
+# robots.txt — Adrien LE BRETON, portfolio
+# https://adrien-lebreton.github.io/me/
 # ===================================================================
 
 User-agent: *
+Allow: /
 
-Disallow: /api/
-Disallow: /management/
-Disallow: /v3/api-docs/
-Disallow: /swagger-ui/
-Disallow: /oauth2/
-Disallow: /admin/
-Disallow: /account/
-Disallow: /login
-
-Sitemap: /sitemap.xml
+Sitemap: https://adrien-lebreton.github.io/me/sitemap.xml

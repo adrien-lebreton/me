@@ -1,5 +1,10 @@
-function animate() {
-  const canvas = document.getElementsByTagName('canvas')[0];
+function animate(targetCanvas, options) {
+  // Sans argument → comportement historique (canvas d'arrière-plan interactif).
+  // Avec (canvas, options) → instance pilotable (ex. rideau de langue), voir le
+  // contrôleur retourné en fin de fonction.
+  const canvas = targetCanvas || document.getElementsByTagName('canvas')[0];
+  const opts = options || {};
+  const interactive = opts.interactive !== false;
   canvas.width = canvas.clientWidth;
   canvas.height = canvas.clientHeight;
 
@@ -12,6 +17,9 @@ function animate() {
     CURL: 30,
     SPLAT_RADIUS: 0.005
   };
+  if (opts.config) {
+    Object.assign(config, opts.config); // surcharges par instance (ex. fumée plus large/lente)
+  }
 
 
   let pointers = [];
@@ -25,7 +33,7 @@ function animate() {
     let gl = canvas.getContext('webgl2', params);
     const isWebGL2 = !!gl;
     if (!isWebGL2)
-      {gl = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);}
+      gl = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);
 
     let halfFloat;
     let supportLinearFiltering;
@@ -104,7 +112,7 @@ function animate() {
 
     const status = gl.checkFramebufferStatus(gl.FRAMEBUFFER);
     if (status != gl.FRAMEBUFFER_COMPLETE)
-      {return false;}
+      return false;
     return true;
   }
 
@@ -131,7 +139,7 @@ function animate() {
       gl.linkProgram(this.program);
 
       if (!gl.getProgramParameter(this.program, gl.LINK_STATUS))
-        {throw gl.getProgramInfoLog(this.program);}
+        throw gl.getProgramInfoLog(this.program);
 
       const uniformCount = gl.getProgramParameter(this.program, gl.ACTIVE_UNIFORMS);
       for (let i = 0; i < uniformCount; i++) {
@@ -152,7 +160,7 @@ function animate() {
     gl.compileShader(shader);
 
     if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS))
-      {throw gl.getShaderInfoLog(shader);}
+      throw gl.getShaderInfoLog(shader);
 
     return shader;
   };
@@ -493,10 +501,24 @@ function animate() {
   })();
 
   let lastTime = Date.now();
-  multipleSplats(parseInt(Math.random() * 20) + 5);
-  update();
+  let rafId;
+  let paused = false;
+  let disposed = false;
+
+  const initialSplats = opts.initialSplats != null ? opts.initialSplats : parseInt(Math.random() * 20) + 5;
+  if (initialSplats > 0) {
+    multipleSplats(initialSplats);
+  }
+  if (opts.autoStart === false) {
+    paused = true; // démarrage différé : voir resume() sur le contrôleur
+  } else {
+    update();
+  }
 
   function update() {
+    if (paused || disposed) {
+      return;
+    }
     resizeCanvas();
 
     const dt = Math.min((Date.now() - lastTime) / 1000, 0.016);
@@ -505,7 +527,7 @@ function animate() {
     gl.viewport(0, 0, textureWidth, textureHeight);
 
     if (splatStack.length > 0)
-      {multipleSplats(splatStack.pop());}
+      multipleSplats(splatStack.pop());
 
     advectionProgram.bind();
     gl.uniform2f(advectionProgram.uniforms.texelSize, 1.0 / textureWidth, 1.0 / textureHeight);
@@ -524,18 +546,12 @@ function animate() {
 
     for (let i = 0; i < pointers.length; i++) {
       const pointer = pointers[i];
-      if (pointer.down) {
-        if (pointer.moved) {
-          splat(pointer.x, pointer.y, pointer.dx, pointer.dy, pointer.color);
-          pointer.moved = false;
-        }
-        else {
-          if (typeof pointer.x === 'number' && typeof pointer.y === 'number') {
-            splat(pointer.x, pointer.y, 0, 0, pointer.color);
-          }
-        }
+      if (pointer.moved) {
+        splat(pointer.x, pointer.y, pointer.dx, pointer.dy, pointer.color);
+        pointer.moved = false;
       }
     }
+
     curlProgram.bind();
     gl.uniform2f(curlProgram.uniforms.texelSize, 1.0 / textureWidth, 1.0 / textureHeight);
     gl.uniform1i(curlProgram.uniforms.uVelocity, velocity.read[2]);
@@ -588,7 +604,7 @@ function animate() {
     gl.uniform1i(displayProgram.uniforms.uTexture, density.read[2]);
     blit(null);
 
-    requestAnimationFrame(update);
+    rafId = requestAnimationFrame(update);
   }
 
   function splat(x, y, dx, dy, color) {
@@ -626,74 +642,132 @@ function animate() {
     }
   }
 
-  canvas.addEventListener('mousemove', e => {
-    pointers[0].moved = pointers[0].down;
-    pointers[0].dx = (e.offsetX - pointers[0].x) * 10.0;
-    pointers[0].dy = (e.offsetY - pointers[0].y) * 10.0;
-    pointers[0].x = e.offsetX;
-    pointers[0].y = e.offsetY;
-  });
+  if (interactive) {
+    canvas.addEventListener('mousemove', e => {
+      pointers[0].moved = pointers[0].down;
+      pointers[0].dx = (e.offsetX - pointers[0].x) * 10.0;
+      pointers[0].dy = (e.offsetY - pointers[0].y) * 10.0;
+      pointers[0].x = e.offsetX;
+      pointers[0].y = e.offsetY;
+    });
 
-  canvas.addEventListener('touchmove', e => {
-    e.preventDefault();
-    const touches = e.targetTouches;
-    const rect = canvas.getBoundingClientRect();
-
-    for (let i = 0; i < touches.length; i++) {
-      let pointer = pointers[i];
-      if (!pointer) {continue;}
-
-      const touchX = touches[i].pageX - rect.left - window.scrollX;
-      const touchY = touches[i].pageY - rect.top - window.scrollY;
-      // ---------------------------------
-
-      pointer.moved = pointer.down;
-      pointer.dx = (touchX - pointer.x) * 10.0;
-      pointer.dy = (touchY - pointer.y) * 10.0;
-      pointer.x = touchX;
-      pointer.y = touchY;
-    }
-  }, false);
-
-
-  // mousedown
-  canvas.addEventListener('mouseover', () => {
-    pointers[0].down = true;
-    pointers[0].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
-  });
-
-  canvas.addEventListener('touchstart', e => {
-    e.preventDefault();
-    const touches = e.targetTouches;
-    const rect = canvas.getBoundingClientRect();
-
-    for (let i = 0; i < touches.length; i++) {
-      while (i >= pointers.length) {
-        pointers.push(new pointerPrototype());
+    canvas.addEventListener('touchmove', e => {
+      e.preventDefault();
+      const touches = e.targetTouches;
+      for (let i = 0; i < touches.length; i++) {
+        let pointer = pointers[i];
+        pointer.moved = pointer.down;
+        pointer.dx = (touches[i].pageX - pointer.x) * 10.0;
+        pointer.dy = (touches[i].pageY - pointer.y) * 10.0;
+        pointer.x = touches[i].pageX;
+        pointer.y = touches[i].pageY;
       }
-      pointers[i].id = touches[i].identifier;
-      pointers[i].down = true;
+    }, false);
 
-      const touchX = touches[i].pageX - rect.left - window.scrollX;
-      const touchY = touches[i].pageY - rect.top - window.scrollY;
-      pointers[i].x = touchX;
-      pointers[i].y = touchY;
+    // mousedown
+    canvas.addEventListener('mouseover', () => {
+      pointers[0].down = true;
+      pointers[0].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
+    });
 
-      pointers[i].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
+    canvas.addEventListener('touchstart', e => {
+      e.preventDefault();
+      const touches = e.targetTouches;
+      for (let i = 0; i < touches.length; i++) {
+        if (i >= pointers.length)
+          pointers.push(new pointerPrototype());
+
+        pointers[i].id = touches[i].identifier;
+        pointers[i].down = true;
+        pointers[i].x = touches[i].pageX;
+        pointers[i].y = touches[i].pageY;
+        pointers[i].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
+      }
+    });
+
+    // mouseup
+    window.addEventListener('mouseout', () => {
+      pointers[0].down = false;
+    });
+
+    window.addEventListener('touchend', e => {
+      const touches = e.changedTouches;
+      for (let i = 0; i < touches.length; i++)
+        for (let j = 0; j < pointers.length; j++)
+          if (touches[i].identifier == pointers[j].id)
+            pointers[j].down = false;
+    });
+  }
+
+  // Contrôleur d'instance (utilisé par les appels pilotés, ex. le rideau de langue).
+  return {
+    splat,
+    multipleSplats,
+    // Splat positionné en coordonnées normalisées (0..1) — pas besoin de connaître
+    // la taille réelle du canvas. dir = vélocité, color = RVB (~0..10).
+    splatNorm(nx, ny, dx, dy, color) {
+      splat(nx * canvas.width, ny * canvas.height, dx, dy, color);
+    },
+    // Pilotage d'un pointeur virtuel — REPRODUIT exactement le survol souris :
+    // mêmes couleurs aléatoires, même modèle de vélocité (delta × 10). Coords 0..1.
+    pointerDownNorm(nx, ny) {
+      pointers[0].down = true;
+      pointers[0].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
+      pointers[0].x = nx * canvas.width;
+      pointers[0].y = ny * canvas.height;
+      pointers[0].moved = false;
+    },
+    pointerMoveNorm(nx, ny) {
+      const p = pointers[0];
+      const x = nx * canvas.width;
+      const y = ny * canvas.height;
+      p.moved = p.down;
+      p.dx = (x - p.x) * 10.0;
+      p.dy = (y - p.y) * 10.0;
+      p.x = x;
+      p.y = y;
+    },
+    pointerUp() {
+      pointers[0].down = false;
+    },
+    resize: resizeCanvas,
+    // Remet le champ (densité/vélocité/pression) à zéro sans réallouer de textures.
+    reset() {
+      [density, velocity, pressure].forEach(fbo => {
+        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo.read[1]);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo.write[1]);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+      });
+    },
+    pause() {
+      paused = true;
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      rafId = undefined;
+    },
+    resume() {
+      if (disposed) {
+        return;
+      }
+      paused = false;
+      lastTime = Date.now();
+      if (!rafId) {
+        rafId = requestAnimationFrame(update);
+      }
+    },
+    destroy() {
+      disposed = true;
+      paused = true;
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      rafId = undefined;
+      const loseCtx = gl.getExtension('WEBGL_lose_context');
+      if (loseCtx) {
+        loseCtx.loseContext();
+      }
     }
-  });
-
-
-  // mouseup
-  window.addEventListener('mouseout', () => {
-    pointers[0].down = false;
-  });
-
-  window.addEventListener('touchend', e => {
-    const touches = e.changedTouches;
-    for (let i = 0; i < touches.length; i++)
-      {for (let j = 0; j < pointers.length; j++)
-        {if (touches[i].identifier == pointers[j].id)
-          {pointers[j].down = false;}}}
-  });
+  };
 }
