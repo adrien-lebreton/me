@@ -1,81 +1,219 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-    </url>
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/portfolio</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/portfolio/ogmah</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/portfolio/vgp</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/portfolio/sante</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/portfolio/integrale</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/portfolio/opt-sido</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/portfolio/opt-portail</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/portfolio/cafat</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/portfolio/obs</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://adrien-lebreton.github.io/me/portfolio/freelance-nc</loc>
-        <lastmod>2026-06-13</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/experience</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/experience"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/experience"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/experience"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/experience</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/experience"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/experience"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/experience"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/portfolio/ogmah</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/ogmah"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/ogmah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/ogmah"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/portfolio/ogmah</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/ogmah"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/ogmah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/ogmah"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/portfolio/vgp</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/vgp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/vgp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/vgp"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/portfolio/vgp</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/vgp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/vgp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/vgp"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/portfolio/sante</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/sante"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/sante"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/sante"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/portfolio/sante</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/sante"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/sante"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/sante"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/portfolio/integrale</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/integrale"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/integrale"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/integrale"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/portfolio/integrale</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/integrale"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/integrale"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/integrale"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/portfolio/opt-sido</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/opt-sido"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/opt-sido"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/opt-sido"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/portfolio/opt-sido</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/opt-sido"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/opt-sido"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/opt-sido"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/portfolio/opt-portail</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/opt-portail"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/opt-portail"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/opt-portail"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/portfolio/opt-portail</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/opt-portail"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/opt-portail"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/opt-portail"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/portfolio/cafat</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/cafat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/cafat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/cafat"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/portfolio/cafat</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/cafat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/cafat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/cafat"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/portfolio/obs</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/obs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/obs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/obs"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/portfolio/obs</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/obs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/obs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/obs"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/portfolio/freelance-nc</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/freelance-nc"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/freelance-nc"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/freelance-nc"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adrien-lebreton.github.io/me/en/portfolio/freelance-nc</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://adrien-lebreton.github.io/me/portfolio/freelance-nc"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adrien-lebreton.github.io/me/en/portfolio/freelance-nc"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adrien-lebreton.github.io/me/portfolio/freelance-nc"/>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
