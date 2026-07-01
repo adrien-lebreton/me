@@ -339,3 +339,27 @@ html.lenis body {
 .lenis.lenis-stopped {
   overflow: hidden;
 }
+
+/* Reteinte teal sobre du chrome navbar sur /experience uniquement (mood Active Theory).
+   La classe est posée/retirée par ExperienceComponent ; les autres pages restent inchangées. */
+body.experience-route .navbar a.btn-default,
+body.experience-route .navbar div.btn-default,
+body.experience-route .navbar button.btn-default {
+  background: transparent;
+  border: 1px solid hsla(174, 60%, 80%, 0.4);
+  color: #d4f1ec;
+  text-shadow: none;
+}
+
+body.experience-route .navbar a.btn-default:hover,
+body.experience-route .navbar div.btn-default:hover,
+body.experience-route .navbar button.btn-default:hover {
+  background: hsla(174, 60%, 80%, 0.1);
+  box-shadow: none;
+  filter: none;
+  color: #eafbf7;
+}
+
+body.experience-route .navbar a.nav-link {
+  color: #d4f1ec;
+}
