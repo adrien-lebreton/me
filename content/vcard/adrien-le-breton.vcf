@@ -4,8 +4,9 @@ N:Le Breton;Adrien;;;
 FN:Adrien Le Breton
 ORG:OGMAH
 TITLE:Tech Lead Full-Stack
-NOTE:CTO chez OGMAH\, Tech Lead Full-Stack freelance à Nouméa.
-ADR;TYPE=WORK:;;;Nouméa;;;Nouvelle-Calédonie
+NOTE:CTO chez OGMAH\, Tech Lead Full-Stack freelance entre Paris et l'île Maurice.
+ADR;TYPE=WORK:;;;Paris;;;France
+EMAIL;TYPE=INTERNET,WORK:adrien.lebreton.io@gmail.com
 URL:https://adrien-lebreton.github.io/me/
 item1.URL:https://www.linkedin.com/in/adrien-le-breton/
 item1.X-ABLabel:LinkedIn

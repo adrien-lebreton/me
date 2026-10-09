@@ -1,5 +1,5 @@
 # ===================================================================
-# robots.txt — Adrien LE BRETON, portfolio
+# robots.txt — Adrien Le Breton, portfolio
 # https://adrien-lebreton.github.io/me/
 # ===================================================================
 
