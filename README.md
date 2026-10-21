@@ -7,8 +7,8 @@ Ce dépôt contient **uniquement le code compilé** de mon portfolio Angular, se
 
 ## Ne rien modifier ici
 
-Les fichiers de ce repo (`main.*.js`, `polyfills.*.js`, `runtime.*.js`, `styles.*.css`,
-`ngsw-worker.js`, images hashées, pages prérendues, `sitemap.xml`, etc.) sont
+Les fichiers de ce repo (`main-*.js`, `chunk-*.js`, `polyfills-*.js`, `styles-*.css`,
+`ngsw-worker.js`, images hashées dans `media/`, pages prérendues, `sitemap.xml`, etc.) sont
 **générés automatiquement** depuis le repo
 [`me-source`](https://github.com/adrien-lebreton/me-source).
 
@@ -17,7 +17,7 @@ Le vrai développement se fait dans [`me-source`](https://github.com/adrien-lebr
 
 ## Comment c'est déployé
 
-1. Développer dans [`me-source`](https://github.com/adrien-lebreton/me-source) (Angular 15).
+1. Développer dans [`me-source`](https://github.com/adrien-lebreton/me-source) (Angular 22).
 2. Builder : `npm run webapp:prod:seo` → build de production, puis prérendu de chaque page
    en français (`/me/…`) et en anglais (`/me/en/…`) avec le `sitemap.xml`. Sortie dans
    `target/classes/static/`.
