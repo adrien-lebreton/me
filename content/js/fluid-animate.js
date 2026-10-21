@@ -5,6 +5,11 @@ function animate(targetCanvas, options) {
   const canvas = targetCanvas || document.getElementsByTagName('canvas')[0];
   const opts = options || {};
   const interactive = opts.interactive !== false;
+  // Couleur d'un pointeur (RVB ~0,2..1,2) : `opts.color` impose une palette (tons braise du site),
+  // sinon tirage libre sur tout le spectre comme à l'origine.
+  const pickColor = typeof opts.color === 'function' ? opts.color : () => [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
+  /** Gain des éclaboussures initiales par rapport à une couleur de pointeur (échelle ~0..10) */
+  const SPLAT_GAIN = 8;
   canvas.width = canvas.clientWidth;
   canvas.height = canvas.clientHeight;
 
@@ -625,7 +630,7 @@ function animate(targetCanvas, options) {
 
   function multipleSplats(amount) {
     for (let i = 0; i < amount; i++) {
-      const color = [Math.random() * 10, Math.random() * 10, Math.random() * 10];
+      const color = pickColor().map(c => c * SPLAT_GAIN);
       const x = canvas.width * Math.random();
       const y = canvas.height * Math.random();
       const dx = 1000 * (Math.random() - 0.5);
@@ -667,7 +672,7 @@ function animate(targetCanvas, options) {
     // mousedown
     canvas.addEventListener('mouseover', () => {
       pointers[0].down = true;
-      pointers[0].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
+      pointers[0].color = pickColor();
     });
 
     canvas.addEventListener('touchstart', e => {
@@ -681,7 +686,7 @@ function animate(targetCanvas, options) {
         pointers[i].down = true;
         pointers[i].x = touches[i].pageX;
         pointers[i].y = touches[i].pageY;
-        pointers[i].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
+        pointers[i].color = pickColor();
       }
     });
 
@@ -709,10 +714,10 @@ function animate(targetCanvas, options) {
       splat(nx * canvas.width, ny * canvas.height, dx, dy, color);
     },
     // Pilotage d'un pointeur virtuel — REPRODUIT exactement le survol souris :
-    // mêmes couleurs aléatoires, même modèle de vélocité (delta × 10). Coords 0..1.
+    // même tirage de couleur (pickColor), même modèle de vélocité (delta × 10). Coords 0..1.
     pointerDownNorm(nx, ny) {
       pointers[0].down = true;
-      pointers[0].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
+      pointers[0].color = pickColor();
       pointers[0].x = nx * canvas.width;
       pointers[0].y = ny * canvas.height;
       pointers[0].moved = false;

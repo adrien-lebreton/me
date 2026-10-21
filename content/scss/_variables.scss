@@ -1,27 +1,54 @@
 /*-- Variables --*/
+
+// Palette rōnin — source unique des couleurs du site (spec 2026-10-21-univers-ronin-site-design.md).
+// Les variables SCSS servent aux rgba() ; le reste du code lit les propriétés --ronin-*.
+$ronin-cream: #f3e9e4;
+$ronin-ink: #1a0d0d;
+$ronin-red: #ff5b4a;
+$ronin-red-deep: #c8321f;
+$ronin-ember: #ffb38a;
+$ronin-paper: #efe6dc;
+$ronin-bg: #0b0505;
+$ronin-bg-deep: #070303;
+
 :root {
-  //Themes colors
-  --color-primary: #059DFF;
-  --color-primary-rgba: rgb(5, 157, 255);
-  --color-primary-alt: #059DFF;
-  --color-primary-light: #059DFF;
-  --color-primary-lightest: #059DFF;
-  --color-secondary: #FB5343;
-  --color-tertiary: #6549D5;
-  --color-tertiary-alt: #6549D5;
-  --color-pink: #E33FA1;
-  --color-light-green: #36C6F0;
+  --ronin-cream: #{$ronin-cream};
+  --ronin-ink: #{$ronin-ink};
+  --ronin-red: #{$ronin-red};
+  --ronin-red-deep: #{$ronin-red-deep};
+  --ronin-ember: #{$ronin-ember};
+  --ronin-paper: #{$ronin-paper};
+  --ronin-bg: #{$ronin-bg};
+  --ronin-bg-deep: #{$ronin-bg-deep};
+  --ronin-btn: #f1e4dc;
+  --ronin-btn-hover: #ffffff;
+  --ronin-ghost: rgba(255, 255, 255, 0.1);
+  --ronin-ghost-hover: rgba(255, 255, 255, 0.18);
+  --ronin-surface: rgba(255, 255, 255, 0.045);
+  --ronin-surface-accent: rgba(255, 91, 74, 0.1);
+
+  //Themes colors — remappées sur la palette rōnin (plus de bleu, violet ni rose)
+  --color-primary: var(--ronin-red);
+  --color-primary-rgba: rgb(255, 91, 74);
+  --color-primary-alt: var(--ronin-red);
+  --color-primary-light: var(--ronin-red);
+  --color-primary-lightest: var(--ronin-red);
+  --color-secondary: var(--ronin-red);
+  --color-tertiary: var(--ronin-red-deep);
+  --color-tertiary-alt: var(--ronin-red-deep);
+  --color-pink: var(--ronin-ember);
+  --color-light-green: var(--ronin-ember);
 
 
-  --color-primary-darker: #011827;
-  --color-tertiary-darker: #150b40;
-  --color-secondary-darker: #190301;
-  --color-light-green-darker: #001f27;
-  --color-pink-darker: #2f011d;
+  --color-primary-darker: #2a0f0c;
+  --color-tertiary-darker: #2a0f0c;
+  --color-secondary-darker: #2a0f0c;
+  --color-light-green-darker: #2a0f0c;
+  --color-pink-darker: #2a0f0c;
 
   // Typo Color
-  --color-heading: #ffffff;
-  --color-body: #acacac;
+  --color-heading: var(--ronin-cream);
+  --color-body: rgba(243, 233, 228, 0.72);
 
   --color-dark: #060606;
   --color-darker: rgba(6, 6, 6, 0.7);
@@ -29,7 +56,7 @@
 
   --color-black: #000000;
   --color-blacker: rgba(15, 15, 17, 0);
-  --color-blackest: #0f0f11;
+  --color-blackest: #120a09;
   --color-border: hsla(0, 0%, 100%, 0.1);
 
 
@@ -91,7 +118,7 @@
 
 
   //Shadows
-  --shadow-primary: 0 0 20px 5px rgba(251, 83, 67, 0.2);
+  --shadow-primary: 0 0 20px 5px rgba(255, 91, 74, 0.2);
   --shadow-light: 1px 1px 6px rgba(0, 0, 0, 0.25);
   --shadow-lighter: 4px 4px 20px 20px rgba(0, 0, 0, 0.01);
 

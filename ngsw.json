@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1791554305815,
+  "timestamp": 1792586245299,
   "index": "/me/index.html",
   "assetGroups": [
     {
@@ -11,15 +11,15 @@
         "ignoreVary": true
       },
       "urls": [
-        "/me/299.e4a97842b38419fe.js",
+        "/me/70.9b66f0fd03206e58.js",
         "/me/favicon.ico",
         "/me/index.html",
-        "/me/main.ca6496c001ec3a40.js",
+        "/me/main.ce9558cb467c9497.js",
         "/me/manifest.webapp",
         "/me/polyfills.5e6b3ada1c6f4661.js",
-        "/me/runtime.98b92becc1a33525.js",
-        "/me/scripts.8daa95868a5619a6.js",
-        "/me/styles.01ffa742d42c3e3c.css"
+        "/me/runtime.4c748999b299194a.js",
+        "/me/scripts.c79859b88b5d8475.js",
+        "/me/styles.f9db6af4245f715d.css"
       ],
       "patterns": []
     },
@@ -31,7 +31,6 @@
         "ignoreVary": true
       },
       "urls": [
-        "/me/adrien.0c4018ca6227e21a.webp",
         "/me/content/audio/air.mp3",
         "/me/content/images/3dcard/fond.webp",
         "/me/content/images/3dcard/green_shine.webp",
@@ -57,24 +56,30 @@
         "/me/content/images/portfolio/clients/uptime.svg",
         "/me/content/images/portfolio/previews/aexmed-sante.jpg",
         "/me/content/images/portfolio/previews/ogmah.jpg",
+        "/me/content/images/ronin/pro.webp",
+        "/me/content/images/ronin/pro@2x.webp",
+        "/me/content/images/ronin/ronin.webp",
+        "/me/content/images/ronin/ronin@2x.webp",
+        "/me/content/images/ronin/texture-1280.webp",
+        "/me/content/images/ronin/texture.webp",
         "/me/content/js/fluid-animate.js",
         "/me/content/scss/_variables.scss",
         "/me/content/scss/global.scss",
         "/me/content/scss/vendor.scss",
         "/me/content/vcard/adrien-le-breton.vcf",
         "/me/content/vcard/qr-contact.svg",
-        "/me/fond.e8a1682650512c93.webp",
-        "/me/green_shine.aae432b8eec97394.webp",
+        "/me/logo-alb_black.64638f39e7116412.png",
         "/me/logo-alb_white.1f3b3fca84102e90.png",
-        "/me/orange_shine.3f81e24919d707c4.webp"
+        "/me/pro@2x.9266c82e394d8230.webp",
+        "/me/ronin@2x.8e25e36441b2c5eb.webp",
+        "/me/texture-1280.7efaa75ff83ba8a1.webp"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/me/299.e4a97842b38419fe.js": "7005d0726f597d22c6b8029bde58ba8612ba4366",
-    "/me/adrien.0c4018ca6227e21a.webp": "d72f5dced427bf650a5a8f45b42cdc214ba0455d",
+    "/me/70.9b66f0fd03206e58.js": "60f22039b862cea4f03e581cb15cf079a0adc926",
     "/me/content/audio/air.mp3": "652a95645df674bf247e9f5bf408b42e5c86aa96",
     "/me/content/images/3dcard/fond.webp": "eeae02e019f062ebde3e9c26297fb5899a0432ea",
     "/me/content/images/3dcard/green_shine.webp": "70c205341f504c15a145ba9c674fdefe67d5b4b0",
@@ -100,24 +105,31 @@
     "/me/content/images/portfolio/clients/uptime.svg": "69a1b3759a0bac55814f628f914dda13ee5d78ee",
     "/me/content/images/portfolio/previews/aexmed-sante.jpg": "26000923ce5b551ea282c17f5f9e60f7afc336b6",
     "/me/content/images/portfolio/previews/ogmah.jpg": "7d3698ccf324a989580b0dc0eded6299d70b2a7c",
-    "/me/content/js/fluid-animate.js": "9f9f80f8452759fdfb8d3d067d91af840090a6a9",
-    "/me/content/scss/_variables.scss": "3535eb43f659feff0c236d28bbdaedcc2ce94f33",
-    "/me/content/scss/global.scss": "4e3b0a5047dc0d00d03878310c01ce4837c75b8e",
+    "/me/content/images/ronin/pro.webp": "bcd65ddb43e9a6d116899bbd76219b7c6960c757",
+    "/me/content/images/ronin/pro@2x.webp": "cba9f3ecf5522f537bca0fbf715083095dde8d57",
+    "/me/content/images/ronin/ronin.webp": "f4b7c8243dec28c6e7e323b85780f2e6640d9c2e",
+    "/me/content/images/ronin/ronin@2x.webp": "26ca6141c0ce72c1f24c1cbca0391eeda62beac0",
+    "/me/content/images/ronin/texture-1280.webp": "8fe93b9158b0c1a9e6cdf0b4defc7a574b21ef9e",
+    "/me/content/images/ronin/texture.webp": "cd8dead540b17dbe65266b5893839a0d7bd19e91",
+    "/me/content/js/fluid-animate.js": "2014c4d3969cd0a16237af185f2a33992c4d20c9",
+    "/me/content/scss/_variables.scss": "27ef7d96960e5167ea48ba2a8b8651944f96d73d",
+    "/me/content/scss/global.scss": "3c59fc800299afcf94d2f22909adde36e87652d3",
     "/me/content/scss/vendor.scss": "2fa6e09fb00970525b8d15aab0d88604e816baa3",
     "/me/content/vcard/adrien-le-breton.vcf": "45dbd9e0175921ca2e13bd6cbb530cb4aae6ed8b",
     "/me/content/vcard/qr-contact.svg": "01ddc92351b09b7053a31df9370ee50d6dba8409",
     "/me/favicon.ico": "c854d4a6832efdf161d5ae65cc7c665995e5ad11",
-    "/me/fond.e8a1682650512c93.webp": "eeae02e019f062ebde3e9c26297fb5899a0432ea",
-    "/me/green_shine.aae432b8eec97394.webp": "70c205341f504c15a145ba9c674fdefe67d5b4b0",
-    "/me/index.html": "77fba8851c4110ba3ef74fd52fc5433f3cf02585",
+    "/me/index.html": "61400bdd1583b5ce94516529a8aa754c4e972212",
+    "/me/logo-alb_black.64638f39e7116412.png": "4b036cdbd2575b40a0b9f5dc43540b7d4e88fb34",
     "/me/logo-alb_white.1f3b3fca84102e90.png": "b4083faad1f4025cc57d85959ab9d4b603f54d6a",
-    "/me/main.ca6496c001ec3a40.js": "1fac250ed4a2049bf45b18ac0f0bd79652ea0ce8",
+    "/me/main.ce9558cb467c9497.js": "2a5e410fd7ca7f7fb53218c3e90b0c65c5556b8e",
     "/me/manifest.webapp": "17d01458c722cd22adc3440f1e4b889d41298252",
-    "/me/orange_shine.3f81e24919d707c4.webp": "a9ec61d4f2c70975bff78f9564a182d1a79a997c",
     "/me/polyfills.5e6b3ada1c6f4661.js": "16421e98547907546eab606fb4e4b18b86fef6fa",
-    "/me/runtime.98b92becc1a33525.js": "d164faf4ca7e5eb2e21e6607c155f9062d7db4d4",
-    "/me/scripts.8daa95868a5619a6.js": "017eff185962ba8f2c836b426082ec532b3d335d",
-    "/me/styles.01ffa742d42c3e3c.css": "721bfd8cb3fca7cf675e970e5f7e475c9c392a4d"
+    "/me/pro@2x.9266c82e394d8230.webp": "cba9f3ecf5522f537bca0fbf715083095dde8d57",
+    "/me/ronin@2x.8e25e36441b2c5eb.webp": "26ca6141c0ce72c1f24c1cbca0391eeda62beac0",
+    "/me/runtime.4c748999b299194a.js": "b699e1e412cc9da8b7801c4604e9ab4a55771ff4",
+    "/me/scripts.c79859b88b5d8475.js": "09b40cd6c40bcdfd14cdc02fff8d230e3f50df34",
+    "/me/styles.f9db6af4245f715d.css": "2121a479b7980d3371420c1e73c7d4ec36af81c3",
+    "/me/texture-1280.7efaa75ff83ba8a1.webp": "8fe93b9158b0c1a9e6cdf0b4defc7a574b21ef9e"
   },
   "navigationUrls": [
     {

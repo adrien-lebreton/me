@@ -135,7 +135,6 @@ a:hover {
       padding: 0.5em 0;
     }
     dd {
-      border-bottom: 1px solid #eee;
       padding: 0.5em 0;
       margin-left: 0;
     }
@@ -164,28 +163,112 @@ a:hover {
   }
 }
 
+// Ancien texte en dégradé du template : désormais l'accent rouge rōnin, en aplat.
 .theme-gradient {
-  background: linear-gradient(95deg, var(--color-primary) 15%, var(--color-tertiary) 45%, var(--color-pink) 75%, var(--color-secondary) 100%) 98%/200% 100%;
-  text-transform: capitalize;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--ronin-red);
 }
 
+// Étiquette de section (« Références », « Méthode »…) : petit texte rouge en capitales,
+// précédé d'un trait — plus de pastille.
 .subtitle {
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  line-height: 18px;
-  font-size: 16px;
-  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 12px;
-  display: inline-block;
-  padding: 7px 14px;
-  background-color: var(--color-blackest);
-  box-shadow: var(--shadow-lighter);
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ronin-red);
+
+  // Rouge fixe, pas currentColor : pendant le brouillage, la couleur du texte de l'hôte devient transparente
+  &::before {
+    content: '';
+    flex: none;
+    width: 28px;
+    height: 2px;
+    background: var(--ronin-red);
+  }
 }
 
 .description {
-  color: #acacac;
+  color: var(--color-body);
+}
+
+/* ==========================================================================
+Bande sur la texture du rōnin (blocs finaux, résultats) : assombrie au centre
+pour que le texte reste lisible.
+========================================================================== */
+.ronin-band {
+  background: radial-gradient(100% 120% at 50% 50%, rgba(8, 3, 3, 0.55), rgba(8, 3, 3, 0.85)),
+    $ronin-bg url('../images/ronin/texture-1280.webp') center / cover;
+}
+
+/* ==========================================================================
+Filigranes de l'accueil : grands signes du rōnin, très pâles, derrière une section.
+À placer dans le .container de la section (z-index 99), pour jhiParallax.
+========================================================================== */
+.ronin-watermark {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  font-size: clamp(9rem, 26vw, 22rem);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  color: rgba($ronin-red, 0.06);
+  pointer-events: none;
+  user-select: none;
+
+  &--left {
+    left: -3%;
+  }
+
+  &--right {
+    right: -3%;
+  }
+
+  @media (max-width: 767.98px) {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+Brouillage en katakana (directive jhiScramble, cycle des rôles du hero) :
+le vrai texte garde sa place mais devient transparent ; la couche animée
+(aria-hidden) dessine chaque lettre à sa position exacte.
+========================================================================== */
+.jhi-scrambling,
+.jhi-scrambling *:not(.jhi-scramble-overlay):not(.jhi-scramble-overlay *) {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.jhi-scramble-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  // L'hôte a `-webkit-text-fill-color: transparent` (hérité) : la couche reprend la couleur de chaque lettre.
+  -webkit-text-fill-color: currentColor;
+
+  > span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: pre;
+    overflow: visible;
+  }
+
+  > span.is-glyph {
+    opacity: 0.75;
+    font-weight: 400;
+  }
 }
 
 .container {
@@ -201,40 +284,52 @@ a:hover {
   margin: 10px
 }
 
+// Bouton principal : pilule crème du rōnin, sans bordure ni dégradé.
 a.btn-default, button.btn-default, div.btn-default {
   padding: 0 28px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: transparent;
+  border: 0;
   border-radius: 8px;
-  background-color: transparent;
-  background: linear-gradient(95deg, var(--color-primary) 15%, var(--color-tertiary) 45%, var(--color-pink) 75%, var(--color-secondary) 100%) 95%/200% 100%;
-  transition-duration: .3s;
-  color: var(--color-white);
+  background: var(--ronin-btn);
+  color: var(--ronin-ink);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
   text-decoration: none;
-  text-shadow: var(--shadow-light);
   display: inline-block;
   height: 50px;
-  line-height: 47px;
-  letter-spacing: .5px;
+  line-height: 50px;
+  letter-spacing: .2px;
   width: auto;
-  transition: .4s
+  transition: background-color .2s ease, color .2s ease
 }
 
-a.btn-default:hover, button.btn-default:hover, div.btn-default:hover {
-  box-shadow: var(--shadow-primary);
-  -webkit-filter: brightness(125%);
-  filter: brightness(125%);
-  color: var(--color-white);
+a.btn-default:hover, button.btn-default:hover, div.btn-default:hover,
+a.btn-default:focus, button.btn-default:focus, div.btn-default:focus {
+  background: var(--ronin-btn-hover);
+  color: var(--ronin-ink);
   text-decoration: none
+}
+
+a.btn-default:focus-visible, button.btn-default:focus-visible {
+  outline: 2px solid var(--ronin-cream);
+  outline-offset: 3px
+}
+
+// Bouton secondaire : fond clair translucide (« Me contacter », recommandations…).
+a.btn-default.is-ghost, button.btn-default.is-ghost {
+  background: var(--ronin-ghost);
+  color: var(--ronin-cream)
+}
+
+a.btn-default.is-ghost:hover, button.btn-default.is-ghost:hover,
+a.btn-default.is-ghost:focus, button.btn-default.is-ghost:focus {
+  background: var(--ronin-ghost-hover);
+  color: var(--ronin-cream)
 }
 
 a.btn-default.btn-large, button.btn-default.btn-large, div.btn-default.btn-large {
   height: 60px;
-  line-height: 56px;
+  line-height: 60px;
   padding: 0 37px;
   font-size: 17px
 }
