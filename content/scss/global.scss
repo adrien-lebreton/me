@@ -3,6 +3,12 @@
 @import 'bootstrap/scss/variables';
 @import 'src/main/webapp/content/scss/variables';
 
+// FontAwesome 7 donne une largeur fixe (1.25em) à toutes les icônes : on garde la largeur
+// naturelle de la v6, `.fa-fw` reste disponible au cas par cas.
+:root {
+  --fa-width: auto;
+}
+
 body {
   margin: 0;
   position: absolute;
